@@ -44,7 +44,7 @@ public final class eventNotification
 		} else { 
 			throw new ServiceException("Input parameter \'bytes\' was not found."); 
 		}
-		
+		 
 		String payload = null;
 		String code = "OK";
 		String message = "Success";
