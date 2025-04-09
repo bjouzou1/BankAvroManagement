@@ -55,7 +55,7 @@ public final class eventNotification
 				AvroDeserializer<QuoteEventNotification> avroQuoteEventNotificationDeserializer = new AvroDeserializer<QuoteEventNotification>();
 				QuoteEventNotification quoteEventNotification =  avroQuoteEventNotificationDeserializer.deserialize(topic_name, bytes);		
 				avroQuoteEventNotificationDeserializer.close();
-			    payload = quoteEventNotification.toString();
+			   // payload = quoteEventNotification.toString(); 
 				// pipelin
 				IDataUtil.put(outputPipelineCursor, "payload", payload);
 			   
