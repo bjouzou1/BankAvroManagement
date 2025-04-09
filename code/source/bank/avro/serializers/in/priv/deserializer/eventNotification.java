@@ -1,11 +1,15 @@
 package bank.avro.serializers.in.priv.deserializer;
 
+// -----( IS Java Code Template v1.2
+
 import com.wm.data.*;
 import com.wm.util.Values;
 import com.wm.app.b2b.server.Service;
 import com.wm.app.b2b.server.ServiceException;
+// --- <<IS-START-IMPORTS>> ---
 import com.stellantis.som.adapter.kafka.avro.notify.QuoteEventNotification;
 import com.stellantis.som.adapter.kafka.avro.serializers.AvroDeserializer;
+// --- <<IS-END-IMPORTS>> ---
 
 public final class eventNotification
 
@@ -44,7 +48,7 @@ public final class eventNotification
 		} else { 
 			throw new ServiceException("Input parameter \'bytes\' was not found."); 
 		}
-		 
+		
 		String payload = null;
 		String code = "OK";
 		String message = "Success";
@@ -55,13 +59,13 @@ public final class eventNotification
 				AvroDeserializer<QuoteEventNotification> avroQuoteEventNotificationDeserializer = new AvroDeserializer<QuoteEventNotification>();
 				QuoteEventNotification quoteEventNotification =  avroQuoteEventNotificationDeserializer.deserialize(topic_name, bytes);		
 				avroQuoteEventNotificationDeserializer.close();
-			   // payload = quoteEventNotification.toString(); 
+			    payload = quoteEventNotification.toString();
 				// pipelin
 				IDataUtil.put(outputPipelineCursor, "payload", payload);
 			   
 		    } catch (Exception e) {
 		    	code= "KO" ;
-		    	message = e.getMessage(); 
+		    	message = e.getMessage();
 		    }
 		
 		
