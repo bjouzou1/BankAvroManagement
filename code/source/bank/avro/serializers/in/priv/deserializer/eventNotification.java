@@ -4,6 +4,8 @@ import com.wm.data.*;
 import com.wm.util.Values;
 import com.wm.app.b2b.server.Service;
 import com.wm.app.b2b.server.ServiceException;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectOutputStream;
 import com.stellantis.som.adapter.kafka.avro.notify.QuoteEventNotification;
 import com.stellantis.som.adapter.kafka.avro.serializers.AvroDeserializer;
 
@@ -36,11 +38,19 @@ public final class eventNotification
 		// [o] - field:0:required message
 		// pipeline
 		IDataCursor inputPipelineCursor = pipeline.getCursor();
+		Object	byteArrays = IDataUtil.get( inputPipelineCursor, "bytes" );
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");
 		byte[] bytes = null;
 		
-		if (inputPipelineCursor.first("bytes")) { 
-			bytes = (byte[]) inputPipelineCursor.getValue();
+		if (byteArrays != null) { 
+			   ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			   try (ObjectOutputStream out = new ObjectOutputStream(bos)) {
+			        out.writeObject(byteArrays);        
+			        out.flush();        
+			        bytes=  bos.toByteArray();
+			    } catch (Exception ex) {
+			        throw new RuntimeException(ex);
+			    }
 		} else { 
 			throw new ServiceException("Input parameter \'bytes\' was not found."); 
 		}
