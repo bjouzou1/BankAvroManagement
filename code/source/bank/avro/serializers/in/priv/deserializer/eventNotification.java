@@ -6,6 +6,7 @@ import com.wm.app.b2b.server.Service;
 import com.wm.app.b2b.server.ServiceException;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
+import java.nio.charset.StandardCharsets;
 import com.stellantis.som.adapter.kafka.avro.notify.QuoteEventNotification;
 import com.stellantis.som.adapter.kafka.avro.serializers.AvroDeserializer;
 
@@ -30,19 +31,19 @@ public final class eventNotification
 	{
 		// --- <<IS-START(service)>> ---
 		// @sigtype java 3.5
-		// [i] object:0:required bytes
 		// [i] field:0:required topic_name
+		// [i] field:0:required bytes
 		// [o] field:0:required payload
 		// [o] record:0:required status
 		// [o] - field:0:required code
 		// [o] - field:0:required message
 		// pipeline
 		IDataCursor inputPipelineCursor = pipeline.getCursor();
-		Object	byteArrays = IDataUtil.get( inputPipelineCursor, "bytes" );
+		String	inputString = IDataUtil.getString( inputPipelineCursor, "bytes" );
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");
 		byte[] bytes = null;
 		
-		if (byteArrays != null) { 
+		/*if (byteArrays != null) { 
 			   ByteArrayOutputStream bos = new ByteArrayOutputStream();
 			   try (ObjectOutputStream out = new ObjectOutputStream(bos)) {
 			        out.writeObject(byteArrays);        
@@ -53,8 +54,14 @@ public final class eventNotification
 			    }
 		} else { 
 			throw new ServiceException("Input parameter \'bytes\' was not found."); 
+		}*/
+		
+		 if (inputString != null) { 
+		bytes = inputString.getBytes(StandardCharsets.UTF_8);
+		} else { 
+		throw new ServiceException("Input parameter \'bytes\' was not found."); 
 		}
-		 
+		
 		String payload = null;
 		String code = "OK";
 		String message = "Success";
@@ -70,7 +77,7 @@ public final class eventNotification
 				IDataUtil.put(outputPipelineCursor, "payload", payload);
 			   
 		    } catch (Exception e) { 
-		    	code= "KO" ;
+		    	code= "KO" ; 
 		    	message = e.getMessage();  
 		    }
 		
