@@ -26,13 +26,84 @@ public final class eventNotification
 
 
 
+	public static final void run (IData pipeline)
+        throws ServiceException
+	{
+		// --- <<IS-START(run)>> ---
+		// @sigtype java 3.5
+		// [i] field:0:required topic_name
+		// [i] object:0:required bytes
+		// [o] field:0:required payload
+		// [o] record:0:required status
+		// [o] - field:0:required code
+		// [o] - field:0:required message
+		// pipeline
+		IDataCursor inputPipelineCursor = pipeline.getCursor();
+			String	topic_name = IDataUtil.getString( inputPipelineCursor, "topic_name" );
+			Object	inputStream = IDataUtil.get( inputPipelineCursor, "bytes" );
+			byte[] bytes = null;
+		
+			ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			   try (ObjectOutputStream out = new ObjectOutputStream(bos)) {
+			        out.writeObject(inputStream);        
+			        out.flush();        
+			        bytes=  bos.toByteArray();
+			    } catch (Exception ex) {
+			        throw new RuntimeException(ex);
+			    }
+		
+		
+		String payload = null;
+		String code = "OK";
+		String message = "Success";
+		IDataCursor outputPipelineCursor = pipeline.getCursor();
+		 
+		   try {
+		
+				AvroDeserializer<QuoteEventNotification> avroQuoteEventNotificationDeserializer = new AvroDeserializer<QuoteEventNotification>();
+				QuoteEventNotification quoteEventNotification =  avroQuoteEventNotificationDeserializer.deserialize(topic_name, bytes);		
+				avroQuoteEventNotificationDeserializer.close();
+			    payload = quoteEventNotification.toString();  
+				 
+			    
+			    // pipeline
+				IDataUtil.put(outputPipelineCursor, "payload", payload);
+			   
+		    } catch (Exception e) { 
+		    	code= "KO" ; 
+		    	message = e.getMessage();  
+		    }
+		
+		
+		 
+		inputPipelineCursor.destroy();
+		
+		
+		
+		// status
+		IData status = IDataFactory.create();
+		IDataCursor statusCursor = status.getCursor();
+		IDataUtil.put(statusCursor, "code", code);
+		IDataUtil.put(statusCursor, "message", message);
+		statusCursor.destroy();
+		IDataUtil.put(outputPipelineCursor, "status", status);
+		outputPipelineCursor.destroy();
+		
+			
+		// --- <<IS-END>> ---
+
+                
+	}
+
+
+
 	public static final void service (IData pipeline)
         throws ServiceException
 	{
 		// --- <<IS-START(service)>> ---
 		// @sigtype java 3.5
-		// [i] field:0:required topic_name
 		// [i] field:0:required bytes
+		// [i] field:0:required topic_name
 		// [o] field:0:required payload
 		// [o] record:0:required status
 		// [o] - field:0:required code
