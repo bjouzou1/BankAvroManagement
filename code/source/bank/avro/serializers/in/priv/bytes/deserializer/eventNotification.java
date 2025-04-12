@@ -41,21 +41,19 @@ public final class eventNotification
 		// [o] - field:0:required message
 		// pipeline
 		IDataCursor inputPipelineCursor = pipeline.getCursor();
-		byte[]	byteArrays = (byte[]) IDataUtil.get( inputPipelineCursor, "bytes" );
+		Object	byteArrays =  IDataUtil.get( inputPipelineCursor, "bytes" );
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name"); 
 		byte[] bytes = null;
 		if (byteArrays != null) { 
-			bytes= byteArrays;
-		//			   ByteArrayOutputStream bos = new ByteArrayOutputStream();
-		//			   bos.writeBytes(byteArrays);
-		//			   bytes=  bos.toByteArray(); 
-		//			   try (ObjectOutputStream out = new ObjectOutputStream(bos)) {
-		//			        out.writeObject(byteArrays);        
-		//			        out.flush();        
-		//			        bytes=  bos.toByteArray();
-		//			    } catch (Exception ex) {
-		//			        throw new RuntimeException(ex);
-		//			    }
+		
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+					   try (ObjectOutputStream out = new ObjectOutputStream(bos)) {
+					        out.writeObject(byteArrays);        
+					        out.flush();        
+					        bytes=  bos.toByteArray();
+					    } catch (Exception ex) { 
+					        throw new RuntimeException(ex);
+					    }
 		} else { 
 			throw new ServiceException("Input parameter \'bytes\' was not found."); 
 		}
