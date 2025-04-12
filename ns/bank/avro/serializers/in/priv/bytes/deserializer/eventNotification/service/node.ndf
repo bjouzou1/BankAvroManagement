@@ -28,6 +28,7 @@
           <value name="field_name">bytes</value>
           <value name="field_type">object</value>
           <value name="field_dim">0</value>
+          <value name="wrapper_type">byte []</value>
           <value name="nillable">true</value>
           <value name="form_qualified">false</value>
           <value name="is_global">false</value>
