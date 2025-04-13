@@ -44,23 +44,24 @@ public final class eventNotification
 		Object	byteArrays =  IDataUtil.get( inputPipelineCursor, "bytes" );
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name"); 
 		byte[] bytes = null;
-		if (byteArrays != null) { 
-		
-		ByteArrayOutputStream bos = new ByteArrayOutputStream();
-					   try (ObjectOutputStream out = new ObjectOutputStream(bos)) {
-					        out.writeObject(byteArrays);        
-					        out.flush();        
-					        bytes=  bos.toByteArray();
-					    } catch (Exception ex) { 
-					        throw new RuntimeException(ex);
-					    }
-		} else { 
-			throw new ServiceException("Input parameter \'bytes\' was not found."); 
-		}
-		
 		String payload = null;
 		String code = "OK";
 		String message = "Success";
+		if (byteArrays != null) { 
+		try {
+			bytes = serialize(byteArrays);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+					   
+		} else { 
+			code= "KO" ; 
+			message = "Input parameter bytes\' was not found.";
+			throw new ServiceException("Input parameter \'bytes\' was not found."); 
+		}
+		
+		
 		IDataCursor outputPipelineCursor = pipeline.getCursor();
 		 
 		   try {
@@ -96,5 +97,14 @@ public final class eventNotification
 
                 
 	}
+
+	// --- <<IS-START-SHARED>> ---
+	public static byte[] serialize(Object obj) throws IOException {
+	    ByteArrayOutputStream out = new ByteArrayOutputStream();
+	    ObjectOutputStream os = new ObjectOutputStream(out);
+	    os.writeObject(obj);
+	    return out.toByteArray();
+	}
+	// --- <<IS-END-SHARED>> ---
 }
 

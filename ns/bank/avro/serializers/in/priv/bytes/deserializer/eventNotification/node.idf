@@ -5,7 +5,11 @@
   <value name="node_subtype">unknown</value>
   <value name="node_nsName">bank.avro.serializers.in.priv.bytes.deserializer.eventNotification</value>
   <value name="is_public">false</value>
-  <value name="shared"></value>
+  <value name="shared">cHVibGljIHN0YXRpYyBieXRlW10gc2VyaWFsaXplKE9iamVjdCBvYmopIHRocm93cyBJT0V4Y2Vw
+dGlvbiB7CiAgICBCeXRlQXJyYXlPdXRwdXRTdHJlYW0gb3V0ID0gbmV3IEJ5dGVBcnJheU91dHB1
+dFN0cmVhbSgpOwogICAgT2JqZWN0T3V0cHV0U3RyZWFtIG9zID0gbmV3IE9iamVjdE91dHB1dFN0
+cmVhbShvdXQpOwogICAgb3Mud3JpdGVPYmplY3Qob2JqKTsKICAgIHJldHVybiBvdXQudG9CeXRl
+QXJyYXkoKTsKfQ==</value>
   <value name="encodeutf8">true</value>
   <value name="extends"></value>
   <array name="implements" type="value" depth="1">
