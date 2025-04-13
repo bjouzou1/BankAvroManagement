@@ -90,7 +90,7 @@ public final class eventNotification
 		IDataUtil.put(statusCursor, "code", code);
 		IDataUtil.put(statusCursor, "message", message);
 		statusCursor.destroy();
-		IDataUtil.put(outputPipelineCursor, "status", status);
+		IDataUtil.put(outputPipelineCursor, "status", status); 
 		outputPipelineCursor.destroy();
 			
 		// --- <<IS-END>> ---
@@ -103,6 +103,7 @@ public final class eventNotification
 	    ByteArrayOutputStream out = new ByteArrayOutputStream();
 	    ObjectOutputStream os = new ObjectOutputStream(out);
 	    os.writeObject(obj);
+	    os.flush();
 	    return out.toByteArray();
 	}
 	// --- <<IS-END-SHARED>> ---

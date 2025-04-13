@@ -8,8 +8,8 @@
   <value name="shared">cHVibGljIHN0YXRpYyBieXRlW10gc2VyaWFsaXplKE9iamVjdCBvYmopIHRocm93cyBJT0V4Y2Vw
 dGlvbiB7CiAgICBCeXRlQXJyYXlPdXRwdXRTdHJlYW0gb3V0ID0gbmV3IEJ5dGVBcnJheU91dHB1
 dFN0cmVhbSgpOwogICAgT2JqZWN0T3V0cHV0U3RyZWFtIG9zID0gbmV3IE9iamVjdE91dHB1dFN0
-cmVhbShvdXQpOwogICAgb3Mud3JpdGVPYmplY3Qob2JqKTsKICAgIHJldHVybiBvdXQudG9CeXRl
-QXJyYXkoKTsKfQ==</value>
+cmVhbShvdXQpOwogICAgb3Mud3JpdGVPYmplY3Qob2JqKTsKICAgIG9zLmZsdXNoKCk7CiAgICBy
+ZXR1cm4gb3V0LnRvQnl0ZUFycmF5KCk7Cn0=</value>
   <value name="encodeutf8">true</value>
   <value name="extends"></value>
   <array name="implements" type="value" depth="1">
