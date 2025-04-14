@@ -45,12 +45,14 @@ public final class eventNotification
 		String code = "OK";
 		String message = "Success";
 		IDataCursor outputPipelineCursor = pipeline.getCursor();
+		String m1 = null;
+		String m2 = null;
 		try {
 		// pipeline
 		IDataCursor inputPipelineCursor = pipeline.getCursor();
-		System.out.print(" before cast");
+		 m1 =" before Cast : ";
 		byte[] byteArrays =  (byte[]) IDataUtil.get( inputPipelineCursor, "byteArrays" );
-		System.out.print(" after cast");
+		 m2 =" after Cast : ";
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");  
 		byte[] bytes = null;
 		String payload = null;
@@ -99,7 +101,7 @@ public final class eventNotification
 			   
 		    } catch (Exception e) { 
 		    	code= "KO" ; 
-		    	message = e.getMessage() + "  "  + e.getCause() + " "  + e.getStackTrace(); 
+		    	message = "m1 : " + m1 + "m2 : " + m2 + " exception:   " + e.getMessage() + "  "   + e.getStackTrace(); 
 				// status
 				IData status = IDataFactory.create();
 				IDataCursor statusCursor = status.getCursor();
