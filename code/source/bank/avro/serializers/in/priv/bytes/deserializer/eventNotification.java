@@ -35,7 +35,7 @@ public final class eventNotification
 	{
 		// --- <<IS-START(service)>> ---
 		// @sigtype java 3.5
-		// [i] object:0:required byte
+		// [i] object:0:required byteOnly
 		// [i] field:0:required topic_name
 		// [o] field:0:required payload
 		// [o] record:0:required status
@@ -43,7 +43,7 @@ public final class eventNotification
 		// [o] - field:0:required message
 		// pipeline
 		IDataCursor inputPipelineCursor = pipeline.getCursor();
-		byte byteArrays =  (byte) IDataUtil.get( inputPipelineCursor, "byte" );
+		Object byteOnly =  IDataUtil.get( inputPipelineCursor, "byteOnly" );
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");  
 		byte[] bytes = null;
 		String payload = null;
@@ -64,7 +64,7 @@ public final class eventNotification
 		//				}
 		//		
 		try {
-			bytes = getByteArrays(byteArrays);
+			bytes = getByteArrays(byteOnly);
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
