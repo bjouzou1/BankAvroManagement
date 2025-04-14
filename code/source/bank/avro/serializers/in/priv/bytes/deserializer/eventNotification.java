@@ -35,7 +35,7 @@ public final class eventNotification
 	{
 		// --- <<IS-START(service)>> ---
 		// @sigtype java 3.5
-		// [i] object:0:required bytes
+		// [i] object:0:required byte
 		// [i] field:0:required topic_name
 		// [o] field:0:required payload
 		// [o] record:0:required status
@@ -43,26 +43,32 @@ public final class eventNotification
 		// [o] - field:0:required message
 		// pipeline
 		IDataCursor inputPipelineCursor = pipeline.getCursor();
-		Object byteArrays =  IDataUtil.get( inputPipelineCursor, "bytes" );
+		byte byteArrays =  (byte) IDataUtil.get( inputPipelineCursor, "byte" );
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");  
 		byte[] bytes = null;
 		String payload = null;
 		String code = "OK";
 		String message = "Success";
-				if (byteArrays != null) { 
-				try {
-					bytes = getByteArrays(byteArrays);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-							   
-				} else { 
-					code= "KO" ; 
-					message = "Input parameter bytes\' was not found.";
-					throw new ServiceException("Input parameter \'bytes\' was not found."); 
-				}
-		
+		//				if (byteArrays != null) { 
+		//				try {
+		//					bytes = getByteArrays(byteArrays);
+		//				} catch (IOException e) {
+		//					// TODO Auto-generated catch block
+		//					e.printStackTrace();
+		//				}
+		//							   
+		//				} else { 
+		//					code= "KO" ; 
+		//					message = "Input parameter bytes\' was not found.";
+		//					throw new ServiceException("Input parameter \'bytes\' was not found."); 
+		//				}
+		//		
+		try {
+			bytes = getByteArrays(byteArrays);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		IDataCursor outputPipelineCursor = pipeline.getCursor();
 		 
