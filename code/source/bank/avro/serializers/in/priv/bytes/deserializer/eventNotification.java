@@ -44,6 +44,7 @@ public final class eventNotification
 		 
 		String code = "OK";
 		String message = "Success";
+		IDataCursor outputPipelineCursor = pipeline.getCursor();
 		try {
 		// pipeline
 		IDataCursor inputPipelineCursor = pipeline.getCursor();
@@ -71,7 +72,7 @@ public final class eventNotification
 		//				
 		
 		
-		IDataCursor outputPipelineCursor = pipeline.getCursor();
+		
 		 
 		
 		
@@ -98,7 +99,15 @@ public final class eventNotification
 			   
 		    } catch (Exception e) { 
 		    	code= "KO" ; 
-		    	message = e.getMessage() + "  "  + e.getCause() + " "  + e.getStackTrace();  
+		    	message = e.getMessage() + "  "  + e.getCause() + " "  + e.getStackTrace(); 
+				// status
+				IData status = IDataFactory.create();
+				IDataCursor statusCursor = status.getCursor();
+				IDataUtil.put(statusCursor, "code", code);
+				IDataUtil.put(statusCursor, "message", message);
+				statusCursor.destroy();
+				IDataUtil.put(outputPipelineCursor, "status", status); 
+				outputPipelineCursor.destroy();
 		    }
 		
 		
