@@ -30,6 +30,80 @@ public final class eventNotification
 
 
 
+	public static final void run (IData pipeline)
+        throws ServiceException
+	{
+		// --- <<IS-START(run)>> ---
+		// @sigtype java 3.5
+		// [i] object:0:required bytes
+		// [i] field:0:required topic_name
+		// [o] field:0:required payload
+		// [o] record:0:required status
+		// [o] - field:0:required code
+		// [o] - field:0:required message
+		// pipeline
+		IDataCursor inputPipelineCursor = pipeline.getCursor();
+		Object byteArrays =  IDataUtil.get( inputPipelineCursor, "bytes" );
+		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");  
+		byte[] bytes = null;
+		String payload = null;
+		String code = "OK";
+		String message = "Success";
+		
+										if (byteArrays != null) { 
+										try {
+											bytes = getByteArrays(byteArrays);
+										} catch (IOException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										}
+													   
+										} else { 
+											code= "KO" ; 
+											message = "Input parameter bytes\' was not found.";
+											throw new ServiceException("Input parameter \'bytes\' was not found."); 
+										}
+				
+		
+		
+		IDataCursor outputPipelineCursor = pipeline.getCursor();
+		 
+		   try {
+		
+				AvroDeserializer<QuoteEventNotification> avroQuoteEventNotificationDeserializer = new AvroDeserializer<QuoteEventNotification>();
+				QuoteEventNotification quoteEventNotification =  avroQuoteEventNotificationDeserializer.deserialize(topic_name, bytes);		
+				avroQuoteEventNotificationDeserializer.close();
+			    payload = quoteEventNotification.toString();  
+				// pipelin
+				IDataUtil.put(outputPipelineCursor, "payload", payload);
+			   
+		    } catch (Exception e) { 
+		    	code= "KO" ; 
+		    	message = e.getMessage() + "  "  + e.getCause() + " "  + e.getStackTrace();  
+		    }
+		
+		
+		 
+		inputPipelineCursor.destroy();
+		
+		
+		
+		// status
+		IData status = IDataFactory.create();
+		IDataCursor statusCursor = status.getCursor();
+		IDataUtil.put(statusCursor, "code", code);
+		IDataUtil.put(statusCursor, "message", message);
+		statusCursor.destroy();
+		IDataUtil.put(outputPipelineCursor, "status", status); 
+		outputPipelineCursor.destroy();
+			
+		// --- <<IS-END>> ---
+
+                
+	}
+
+
+
 	public static final void service (IData pipeline)
         throws ServiceException
 	{
@@ -79,7 +153,7 @@ public final class eventNotification
 			   
 		    } catch (Exception e) { 
 		    	code= "KO" ; 
-		    	message = e.getMessage() + e.getCause() +e.getStackTrace();  
+		    	message = e.getMessage() + "  "  + e.getCause() + " "  + e.getStackTrace();  
 		    }
 		
 		
@@ -106,7 +180,7 @@ public final class eventNotification
 	public static byte[] getByteArrays (Object obj) throws IOException {
 		 
 		    ByteArrayOutputStream out = new ByteArrayOutputStream();
-		    ObjectOutputStream os = new ObjectOutputStream(out);
+		    ObjectOutputStream os = new ObjectOutputStream(out); 
 		    os.writeObject(obj);
 		    return out.toByteArray();
 	}
