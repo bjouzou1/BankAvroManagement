@@ -41,6 +41,10 @@ public final class eventNotification
 		// [o] record:0:required status
 		// [o] - field:0:required code
 		// [o] - field:0:required message
+		 
+		String code = "OK";
+		String message = "Success";
+		try {
 		// pipeline
 		IDataCursor inputPipelineCursor = pipeline.getCursor();
 		System.out.print(" before cast");
@@ -49,8 +53,7 @@ public final class eventNotification
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");  
 		byte[] bytes = null;
 		String payload = null;
-		String code = "OK";
-		String message = "Success";
+		
 		
 		//										if (byteArrays != null) { 
 		//										try {
@@ -70,7 +73,7 @@ public final class eventNotification
 		
 		IDataCursor outputPipelineCursor = pipeline.getCursor();
 		 
-		   try {
+		
 		
 				AvroDeserializer<QuoteEventNotification> avroQuoteEventNotificationDeserializer = new AvroDeserializer<QuoteEventNotification>();
 				System.out.print(" before AvroDeserialise");
@@ -80,6 +83,18 @@ public final class eventNotification
 			    payload = quoteEventNotification.toString();  
 				// pipelin
 				IDataUtil.put(outputPipelineCursor, "payload", payload);
+				inputPipelineCursor.destroy();
+				
+				
+				
+				// status
+				IData status = IDataFactory.create();
+				IDataCursor statusCursor = status.getCursor();
+				IDataUtil.put(statusCursor, "code", code);
+				IDataUtil.put(statusCursor, "message", message);
+				statusCursor.destroy();
+				IDataUtil.put(outputPipelineCursor, "status", status); 
+				outputPipelineCursor.destroy();
 			   
 		    } catch (Exception e) { 
 		    	code= "KO" ; 
@@ -88,18 +103,7 @@ public final class eventNotification
 		
 		
 		 
-		inputPipelineCursor.destroy();
 		
-		
-		
-		// status
-		IData status = IDataFactory.create();
-		IDataCursor statusCursor = status.getCursor();
-		IDataUtil.put(statusCursor, "code", code);
-		IDataUtil.put(statusCursor, "message", message);
-		statusCursor.destroy();
-		IDataUtil.put(outputPipelineCursor, "status", status); 
-		outputPipelineCursor.destroy();
 			
 		// --- <<IS-END>> ---
 
