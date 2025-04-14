@@ -6,9 +6,11 @@ import com.wm.app.b2b.server.Service;
 import com.wm.app.b2b.server.ServiceException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import org.apache.commons.lang3.SerializationUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import com.stellantis.som.adapter.kafka.avro.notify.QuoteEventNotification;
 import com.stellantis.som.adapter.kafka.avro.serializers.AvroDeserializer;
 
@@ -100,11 +102,12 @@ public final class eventNotification
 
 	// --- <<IS-START-SHARED>> ---
 	public static byte[] serialize(Object obj) throws IOException {
-	    ByteArrayOutputStream out = new ByteArrayOutputStream();
-	    ObjectOutputStream os = new ObjectOutputStream(out);
-	    os.writeObject(obj);
-	    os.flush();
-	    return out.toByteArray();
+	//	    ByteArrayOutputStream out = new ByteArrayOutputStream();
+	//	    ObjectOutputStream os = new ObjectOutputStream(out);
+	//	    os.writeObject(obj);
+	//	    os.flush();
+	//	    return out.toByteArray();
+		return SerializationUtils.serialize((Serializable) obj);
 	}
 	// --- <<IS-END-SHARED>> ---
 }

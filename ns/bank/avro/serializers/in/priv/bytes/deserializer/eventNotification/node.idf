@@ -6,10 +6,11 @@
   <value name="node_nsName">bank.avro.serializers.in.priv.bytes.deserializer.eventNotification</value>
   <value name="is_public">false</value>
   <value name="shared">cHVibGljIHN0YXRpYyBieXRlW10gc2VyaWFsaXplKE9iamVjdCBvYmopIHRocm93cyBJT0V4Y2Vw
-dGlvbiB7CiAgICBCeXRlQXJyYXlPdXRwdXRTdHJlYW0gb3V0ID0gbmV3IEJ5dGVBcnJheU91dHB1
-dFN0cmVhbSgpOwogICAgT2JqZWN0T3V0cHV0U3RyZWFtIG9zID0gbmV3IE9iamVjdE91dHB1dFN0
-cmVhbShvdXQpOwogICAgb3Mud3JpdGVPYmplY3Qob2JqKTsKICAgIG9zLmZsdXNoKCk7CiAgICBy
-ZXR1cm4gb3V0LnRvQnl0ZUFycmF5KCk7Cn0=</value>
+dGlvbiB7Ci8vCSAgICBCeXRlQXJyYXlPdXRwdXRTdHJlYW0gb3V0ID0gbmV3IEJ5dGVBcnJheU91
+dHB1dFN0cmVhbSgpOwovLwkgICAgT2JqZWN0T3V0cHV0U3RyZWFtIG9zID0gbmV3IE9iamVjdE91
+dHB1dFN0cmVhbShvdXQpOwovLwkgICAgb3Mud3JpdGVPYmplY3Qob2JqKTsKLy8JICAgIG9zLmZs
+dXNoKCk7Ci8vCSAgICByZXR1cm4gb3V0LnRvQnl0ZUFycmF5KCk7CglyZXR1cm4gU2VyaWFsaXph
+dGlvblV0aWxzLnNlcmlhbGl6ZSgoU2VyaWFsaXphYmxlKSBvYmopOwp9</value>
   <value name="encodeutf8">true</value>
   <value name="extends"></value>
   <array name="implements" type="value" depth="1">
@@ -17,9 +18,11 @@ ZXR1cm4gb3V0LnRvQnl0ZUFycmF5KCk7Cn0=</value>
   <array name="imports" type="value" depth="1">
     <value>java.nio.file.Files</value>
     <value>java.nio.file.Paths</value>
+    <value>org.apache.commons.lang3.SerializationUtils</value>
     <value>java.io.ByteArrayOutputStream</value>
     <value>java.io.IOException</value>
     <value>java.io.ObjectOutputStream</value>
+    <value>java.io.Serializable</value>
     <value>com.stellantis.som.adapter.kafka.avro.notify.QuoteEventNotification</value>
     <value>com.stellantis.som.adapter.kafka.avro.serializers.AvroDeserializer</value>
   </array>
