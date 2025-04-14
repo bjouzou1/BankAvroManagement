@@ -26,6 +26,18 @@ public final class pub
 	{
 		// --- <<IS-START(test)>> ---
 		// @sigtype java 3.5
+		// [i] object:0:required bytes
+		// [o] field:0:required payload
+		
+		// pipeline
+		IDataCursor pipelineCursor = pipeline.getCursor();
+			Object	bytes = IDataUtil.get( pipelineCursor, "bytes" );
+		pipelineCursor.destroy();
+		
+		// pipeline
+		IDataCursor pipelineCursor_1 = pipeline.getCursor();
+		IDataUtil.put( pipelineCursor_1, "payload", "payload" );
+		pipelineCursor_1.destroy();
 		// --- <<IS-END>> ---
 
                 
