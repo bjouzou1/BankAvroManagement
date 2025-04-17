@@ -227,7 +227,7 @@ public final class eventNotification
 			   
 		    } catch (Exception e) { 
 		    	code= "KO" ; 
-		    	message = " exception:   " + e.getMessage() + "  "   + e.getStackTrace(); 
+		    	message = " exception:  Message Error  " + e.getMessage() + " Localised Message Error : " + e.getLocalizedMessage() ; 
 		    }
 		
 		
