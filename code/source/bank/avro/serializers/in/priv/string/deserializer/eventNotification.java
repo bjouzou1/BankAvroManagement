@@ -11,7 +11,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
-import com.stellantis.som.adapter.kafka.avro.notify.QuoteEventNotification;
+import com.stellantis.bsq.adapter.kafka.avro.notify.QuoteEventNotification;
 import com.stellantis.som.adapter.kafka.avro.serializers.AvroDeserializer;
 // --- <<IS-END-IMPORTS>> ---
 

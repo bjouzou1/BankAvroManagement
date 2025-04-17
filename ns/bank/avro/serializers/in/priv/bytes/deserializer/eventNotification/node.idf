@@ -46,7 +46,7 @@ ICAgIH0KCiAgICByZXR1cm4gbnVsbDsKfQ==</value>
     <value>java.io.InputStream</value>
     <value>java.io.ObjectOutputStream</value>
     <value>java.io.Serializable</value>
-    <value>com.stellantis.som.adapter.kafka.avro.notify.QuoteEventNotification</value>
+    <value>com.stellantis.bsq.adapter.kafka.avro.notify.QuoteEventNotification</value>
     <value>com.stellantis.som.adapter.kafka.avro.serializers.AvroDeserializer</value>
   </array>
 </Values>

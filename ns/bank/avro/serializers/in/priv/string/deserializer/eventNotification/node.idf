@@ -15,7 +15,7 @@ dXQudG9CeXRlQXJyYXkoKTsKfQ==</value>
     <value>java.io.IOException</value>
     <value>java.io.ObjectOutputStream</value>
     <value>java.nio.charset.StandardCharsets</value>
-    <value>com.stellantis.som.adapter.kafka.avro.notify.QuoteEventNotification</value>
+    <value>com.stellantis.bsq.adapter.kafka.avro.notify.QuoteEventNotification</value>
     <value>com.stellantis.som.adapter.kafka.avro.serializers.AvroDeserializer</value>
   </array>
 </Values>
