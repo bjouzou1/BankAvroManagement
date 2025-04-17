@@ -46,7 +46,7 @@ public final class eventNotification
 		IDataCursor inputPipelineCursor = pipeline.getCursor();
 		String	inputString = IDataUtil.getString( inputPipelineCursor, "bytes" );
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");
-		byte[] bytes = null;
+		byte[] bytes = null; 
 		
 		if (inputString != null) { 
 			//bytes = inputString.getBytes(StandardCharsets.UTF_8);
@@ -76,9 +76,9 @@ public final class eventNotification
 			    // pipeline
 				IDataUtil.put(outputPipelineCursor, "payload", payload);
 			   
-		    } catch (Exception e) { 
+		   } catch (Exception e) { 
 		    	code= "KO" ; 
-		    	message = e.getMessage();  
+		    	message = " exception:  Message Error  " + e.getMessage() + " Localised Message Error : " + e.getLocalizedMessage() ; 
 		    }
 		
 		
@@ -95,8 +95,6 @@ public final class eventNotification
 		statusCursor.destroy();
 		IDataUtil.put(outputPipelineCursor, "status", status);
 		outputPipelineCursor.destroy();
-		
-			
 		// --- <<IS-END>> ---
 
                 

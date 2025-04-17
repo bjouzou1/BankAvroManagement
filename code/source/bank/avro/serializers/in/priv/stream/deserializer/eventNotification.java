@@ -52,7 +52,7 @@ public final class eventNotification
 		String payload = null;
 		String code = "OK"; 
 		String message = "Success";
-		IDataCursor outputPipelineCursor = pipeline.getCursor();
+		IDataCursor outputPipelineCursor = pipeline.getCursor(); 
 		
 		try {
 			
@@ -92,8 +92,6 @@ public final class eventNotification
 		statusCursor.destroy();
 		IDataUtil.put(outputPipelineCursor, "status", status);
 		outputPipelineCursor.destroy();
-		
-			
 		// --- <<IS-END>> ---
 
                 
@@ -124,7 +122,7 @@ public final class eventNotification
 		IDataCursor outputPipelineCursor = pipeline.getCursor();
 		
 		try {
-			bytes= readFully(inputStream);
+			bytes= readFully(inputStream); 
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -160,8 +158,6 @@ public final class eventNotification
 		statusCursor.destroy();
 		IDataUtil.put(outputPipelineCursor, "status", status);
 		outputPipelineCursor.destroy();
-		
-			
 		// --- <<IS-END>> ---
 
                 
