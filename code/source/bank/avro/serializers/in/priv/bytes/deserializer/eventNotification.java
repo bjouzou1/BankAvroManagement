@@ -139,13 +139,13 @@ public final class eventNotification
 		// [o] - field:0:required message
 		// pipeline
 		IDataCursor inputPipelineCursor = pipeline.getCursor();
-		byte[]  bytes =  (byte[]) IDataUtil.get( inputPipelineCursor, "bytes" );
+		byte[]  bytes =   IDataUtil.getString( inputPipelineCursor, "bytes").getBytes();
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");  
 		String payload = null;
 		String code = "OK";
 		String message = "Success";
 		
-										
+										 
 		
 		IDataCursor outputPipelineCursor = pipeline.getCursor();
 		 
