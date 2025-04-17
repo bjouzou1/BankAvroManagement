@@ -7,14 +7,11 @@ import com.wm.util.Values;
 import com.wm.app.b2b.server.Service;
 import com.wm.app.b2b.server.ServiceException;
 // --- <<IS-START-IMPORTS>> ---
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import com.stellantis.bsq.adapter.kafka.avro.notify.QuoteEventNotification;
 import com.stellantis.som.adapter.kafka.avro.serializers.AvroDeserializer;
 // --- <<IS-END-IMPORTS>> ---
@@ -32,6 +29,76 @@ public final class eventNotification
 
 	// ---( server methods )---
 
+
+
+
+	public static final void execute (IData pipeline)
+        throws ServiceException
+	{
+		// --- <<IS-START(execute)>> ---
+		// @sigtype java 3.5
+		// [i] object:0:required bytes
+		// [i] field:0:required topic_name
+		// [o] field:0:required payload
+		// [o] record:0:required status
+		// [o] - field:0:required code
+		// [o] - field:0:required message
+		// pipeline
+		IDataCursor inputPipelineCursor = pipeline.getCursor();
+		Object bytesObject =  IDataUtil.get( inputPipelineCursor, "bytes");
+		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");  
+		String payload = null;
+		String code = "OK";
+		String message = "Success";
+		byte[] bytes = null;
+		
+		if (bytesObject != null) { 
+			//bytes = inputString.getBytes(StandardCharsets.UTF_8);
+			try {
+				bytes = getByteArrays(bytesObject);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			} else { 
+			throw new ServiceException("Input parameter \'bytes\' was not found."); 
+			}
+		
+		IDataCursor outputPipelineCursor = pipeline.getCursor();
+		 
+		   try {
+		
+				AvroDeserializer<QuoteEventNotification> avroQuoteEventNotificationDeserializer = new AvroDeserializer<QuoteEventNotification>();
+				QuoteEventNotification quoteEventNotification =  avroQuoteEventNotificationDeserializer.deserialize(topic_name, bytes);		
+				avroQuoteEventNotificationDeserializer.close();
+			    payload = quoteEventNotification.toString();  
+				// pipeline
+				IDataUtil.put(outputPipelineCursor, "payload", payload);
+			   
+		    } catch (Exception e) { 
+		    	code= "KO" ; 
+		    	message = " exception:   " + e.getMessage() + "  "   + e.getStackTrace(); 
+		    }
+		
+		
+		 
+		inputPipelineCursor.destroy();
+		
+		
+		
+		// status
+		IData status = IDataFactory.create();
+		IDataCursor statusCursor = status.getCursor();
+		IDataUtil.put(statusCursor, "code", code);
+		IDataUtil.put(statusCursor, "message", message);
+		statusCursor.destroy();
+		IDataUtil.put(outputPipelineCursor, "status", status); 
+		outputPipelineCursor.destroy();
+			
+		// --- <<IS-END>> ---
+
+                
+	}
 
 
 
@@ -139,7 +206,7 @@ public final class eventNotification
 		// [o] - field:0:required message
 		// pipeline
 		IDataCursor inputPipelineCursor = pipeline.getCursor();
-		byte[]  bytes =   IDataUtil.getString( inputPipelineCursor, "bytes").getBytes();
+		byte[]  bytes = (byte[]) IDataUtil.get( inputPipelineCursor, "bytes");
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");  
 		String payload = null;
 		String code = "OK";
@@ -185,33 +252,11 @@ public final class eventNotification
 
 	// --- <<IS-START-SHARED>> ---
 	public static byte[] getByteArrays (Object obj) throws IOException {
-		 
-	       InputStream stream = objectToInputStream(obj);
+	    ByteArrayOutputStream out = new ByteArrayOutputStream();
+	    ObjectOutputStream os = new ObjectOutputStream(out); 
+	    os.writeObject(obj);
+	    return out.toByteArray();
 	
-	        if (stream == null) {
-	            return new byte[0];
-	        }
-	
-	        //Code borrowed and modified from https://forums.bukkit.org/threads/tutorial-extreme-beyond-reflection-asm-replacing-loaded-classes.99376/
-	        //Edits include fixing the formatting to my taste, along with a few renames, and making the error print
-	        //to the NAPI Log Helper, as well as fixing a bit of bad programming style.
-	
-	        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-	
-	        try {
-	            int bytesRead;
-	            byte[] data = new byte[16384];
-	
-	            while ((bytesRead = stream.read(data, 0, data.length)) != -1) {
-	                buffer.write(data, 0, bytesRead);
-	            }
-	
-	            buffer.flush();
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-	
-	     return buffer.toByteArray();
 	}
 	
 	public static final InputStream objectToInputStream(Object theObject) {
