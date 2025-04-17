@@ -1,14 +1,19 @@
 package bank.avro.serializers.in.priv.string.deserializer;
 
+// -----( IS Java Code Template v1.2
+
 import com.wm.data.*;
 import com.wm.util.Values;
 import com.wm.app.b2b.server.Service;
 import com.wm.app.b2b.server.ServiceException;
+// --- <<IS-START-IMPORTS>> ---
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import com.stellantis.som.adapter.kafka.avro.notify.QuoteEventNotification;
 import com.stellantis.som.adapter.kafka.avro.serializers.AvroDeserializer;
+// --- <<IS-END-IMPORTS>> ---
 
 public final class eventNotification
 
@@ -44,7 +49,13 @@ public final class eventNotification
 		byte[] bytes = null;
 		
 		if (inputString != null) { 
-			bytes = inputString.getBytes(StandardCharsets.UTF_8);
+			//bytes = inputString.getBytes(StandardCharsets.UTF_8);
+			try {
+				bytes = getByteArrays(inputString);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			} else { 
 			throw new ServiceException("Input parameter \'bytes\' was not found."); 
 			}
@@ -90,5 +101,15 @@ public final class eventNotification
 
                 
 	}
+
+	// --- <<IS-START-SHARED>> ---
+	public static byte[] getByteArrays (Object obj) throws IOException {
+		 
+	    ByteArrayOutputStream out = new ByteArrayOutputStream();
+	    ObjectOutputStream os = new ObjectOutputStream(out); 
+	    os.writeObject(obj);
+	    return out.toByteArray();
+	}
+	// --- <<IS-END-SHARED>> ---
 }
 

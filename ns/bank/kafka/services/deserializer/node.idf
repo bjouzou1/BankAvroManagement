@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="node_type">interface</value>
+  <value name="node_subtype">unknown</value>
+  <value name="node_nsName">bank.kafka.services.deserializer</value>
+  <value name="is_public">false</value>
+  <value name="shared">cHVibGljIGNsYXNzIEF2cm9EZXNlcmlhbGl6ZXI8VCBleHRlbmRzIFNwZWNpZmljUmVjb3JkQmFz
+ZT4gaW1wbGVtZW50cyBEZXNlcmlhbGl6ZXI8VD4gewogICAgcHJpdmF0ZSBDbGFzczxUPiB0YXJn
+ZXRUeXBlOwogICAgcHJpdmF0ZSAgZmluYWwgTG9nZ2VyIExPR0dFUiA9IExvZ2dlckZhY3Rvcnku
+Z2V0TG9nZ2VyKEF2cm9EZXNlcmlhbGl6ZXIuY2xhc3MpOwoKICAgIEBTdXBwcmVzc1dhcm5pbmdz
+KCJ1bmNoZWNrZWQiKQoJcHVibGljIEF2cm9EZXNlcmlhbGl6ZXIoKSB7CiAgICAgICAgLy8gTm90
+IHBvc3NpYmxlIHdpdGggc3ByaW5nIGNsb3VkIHRvIHVzZSBhIHBhcmFtZXRlcml6ZWQgY29uc3Ry
+dWN0b3IKICAgICAgICAvLyBTbyB3ZSBuZWVkIHRvIHVzZSBhIGRlZmF1bHQgY29uc3RydWN0b3Ig
+YW5kIHNldCB0aGUgdGFyZ2V0VHlwZSBtYW51YWxseQogICAgICAgIEF2cm9UeXBlQ29uZmlnLnJl
+Z2lzdGVyTG9naWNhbFR5cGVzKCk7CiAgICAgICAgdGhpcy50YXJnZXRUeXBlID0gKENsYXNzPFQ+
+KSBRdW90ZUV2ZW50Tm90aWZpY2F0aW9uLmNsYXNzOwogICAgfQoKICAgIAoKICAgIAogICAgQE92
+ZXJyaWRlCiAgICBwdWJsaWMgVCBkZXNlcmlhbGl6ZShTdHJpbmcgdG9waWMsIGJ5dGVbXSBkYXRh
+KSB7CiAgICAgICAgdHJ5IHsKCiAgICAgICAgICAgIGlmIChkYXRhID09IG51bGwpIHsKICAgICAg
+ICAgICAgCUxPR0dFUi5kZWJ1ZygiTnVsbCBkYXRhIHJlY2VpdmVkIGZvciB0b3BpYyAne30nIiwg
+dG9waWMpOwogICAgICAgICAgICAgICAgcmV0dXJuIG51bGw7CiAgICAgICAgICAgIH0KCiAgICAg
+ICAgICAgIExPR0dFUi5kZWJ1ZygiRGVzZXJpYWxpemluZyBkYXRhIGZvciB0b3BpYyAne30nIiwg
+dG9waWMpOwoKICAgICAgICAgICAgVCBpbnN0YW5jZSA9IHRhcmdldFR5cGUuZ2V0RGVjbGFyZWRD
+b25zdHJ1Y3RvcigpLm5ld0luc3RhbmNlKCk7CiAgICAgICAgICAgIFNjaGVtYSBzY2hlbWEgPSBp
+bnN0YW5jZS5nZXRTY2hlbWEoKTsKCiAgICAgICAgICAgIFNwZWNpZmljRGF0dW1SZWFkZXI8VD4g
+ZGF0dW1SZWFkZXIgPSBuZXcgU3BlY2lmaWNEYXR1bVJlYWRlcjw+KHNjaGVtYSk7CgogICAgICAg
+ICAgICBCaW5hcnlEZWNvZGVyIGRlY29kZXIgPSBEZWNvZGVyRmFjdG9yeS5nZXQoKS5iaW5hcnlE
+ZWNvZGVyKGRhdGEsIG51bGwpOwogICAgICAgICAgICBUIHJlc3VsdCA9IGRhdHVtUmVhZGVyLnJl
+YWQobnVsbCwgZGVjb2Rlcik7CgogICAgICAgICAgICBMT0dHRVIuZGVidWcoIkRlc2VyaWFsaXpl
+ZCBkYXRhOiB7fSIsIHJlc3VsdCk7CiAgICAgICAgICAgIHJldHVybiByZXN1bHQ7CgogICAgICAg
+IH0gY2F0Y2ggKEV4Y2VwdGlvbiBlKSB7CiAgICAgICAgICAgIHRocm93IG5ldyBTZXJpYWxpemF0
+aW9uRXhjZXB0aW9uKCJFcnJvciBkZXNlcmlhbGl6aW5nIEF2cm8gbWVzc2FnZSBmb3IgdG9waWMg
+OiAgIiArIHRvcGljICsgIiAgIENhdXNlOiAgICIgKyBlLmdldENhdXNlKCkgLGUpOwogICAgICAg
+IH0KICAgIH0KfQoKCSAgICA=</value>
+  <value name="encodeutf8">true</value>
+  <value name="extends"></value>
+  <array name="implements" type="value" depth="1">
+  </array>
+  <array name="imports" type="value" depth="1">
+    <value>org.apache.avro.Schema</value>
+    <value>org.apache.avro.io.BinaryDecoder</value>
+    <value>org.apache.avro.io.DecoderFactory</value>
+    <value>org.apache.avro.specific.SpecificDatumReader</value>
+    <value>org.apache.avro.specific.SpecificRecordBase</value>
+    <value>org.apache.kafka.common.errors.SerializationException</value>
+    <value>org.apache.kafka.common.serialization.Deserializer</value>
+    <value>org.slf4j.Logger</value>
+    <value>org.slf4j.LoggerFactory</value>
+    <value>com.stellantis.som.adapter.kafka.avro.notify.QuoteEventNotification</value>
+    <value>com.stellantis.som.adapter.kafka.avro.serializers.AvroDeserializer</value>
+    <value>com.stellantis.som.adapter.kafka.avro.serializers.AvroTypeConfig</value>
+  </array>
+</Values>

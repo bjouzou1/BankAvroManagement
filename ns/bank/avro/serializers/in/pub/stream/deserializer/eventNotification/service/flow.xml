@@ -129,7 +129,7 @@
 </MAP>
 
 <MAP TIMEOUT="" MODE="STANDALONE">
-  <COMMENT>#invoke bank.avro.serializers.in.priv.stream.deserializer.eventNotification:service</COMMENT>
+  <COMMENT>#invoke bank.avro.serializers.in.priv.string.deserializer.eventNotification:service</COMMENT>
   <MAPTARGET>
 
 <Values version="2.0">
@@ -279,13 +279,13 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/payload;1;0" TO="/payload;1;0">
+<MAPCOPY FROM="/status;2;0/message;1;0" TO="/status;2;0/message;1;0">
 </MAPCOPY>
 
 <MAPCOPY FROM="/status;2;0/code;1;0" TO="/status;2;0/code;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/status;2;0/message;1;0" TO="/status;2;0/message;1;0">
+<MAPCOPY FROM="/payload;1;0" TO="/payload;1;0">
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>

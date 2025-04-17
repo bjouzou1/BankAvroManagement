@@ -1,18 +1,23 @@
 package bank.avro.serializers.in.priv.bytes.deserializer;
 
+// -----( IS Java Code Template v1.2
+
 import com.wm.data.*;
 import com.wm.util.Values;
 import com.wm.app.b2b.server.Service;
 import com.wm.app.b2b.server.ServiceException;
+// --- <<IS-START-IMPORTS>> ---
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.apache.commons.lang3.SerializationUtils;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import com.stellantis.som.adapter.kafka.avro.notify.QuoteEventNotification;
 import com.stellantis.som.adapter.kafka.avro.serializers.AvroDeserializer;
+// --- <<IS-END-IMPORTS>> ---
 
 public final class eventNotification
 
@@ -35,7 +40,7 @@ public final class eventNotification
 	{
 		// --- <<IS-START(run)>> ---
 		// @sigtype java 3.5
-		// [i] object:0:required byteArrays
+		// [i] object:0:required bytes
 		// [i] field:0:required topic_name
 		// [o] field:0:required payload
 		// [o] record:0:required status
@@ -45,33 +50,31 @@ public final class eventNotification
 		String code = "OK";
 		String message = "Success";
 		IDataCursor outputPipelineCursor = pipeline.getCursor();
-		String m1 = null;
-		String m2 = null;
+		
 		try {
 		// pipeline
 		IDataCursor inputPipelineCursor = pipeline.getCursor();
-		 m1 =" before Cast : ";
-		byte[] byteArrays =  (byte[]) IDataUtil.get( inputPipelineCursor, "byteArrays" );
-		 m2 =" after Cast : ";
+		Object byteArrays =  IDataUtil.get( inputPipelineCursor, "bytes" );
+		
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");  
 		byte[] bytes = null;
 		String payload = null;
 		
 		
-		//										if (byteArrays != null) { 
-		//										try {
-		//											bytes = getByteArrays(byteArrays);
-		//										} catch (IOException e) {
-		//											// TODO Auto-generated catch block
-		//											e.printStackTrace();
-		//										}
-		//													   
-		//										} else { 
-		//											code= "KO" ; 
-		//											message = "Input parameter bytes\' was not found.";
-		//											throw new ServiceException("Input parameter \'bytes\' was not found."); 
-		//										}
-		//				
+												if (byteArrays != null) { 
+												try {
+													bytes = getByteArrays(byteArrays);
+												} catch (IOException e) {
+													// TODO Auto-generated catch block
+													e.printStackTrace();
+												}
+															   
+												} else { 
+													code= "KO" ; 
+													message = "Input parameter bytes\' was not found.";
+													throw new ServiceException("Input parameter \'bytes\' was not found."); 
+												}
+			
 		
 		
 		
@@ -80,7 +83,7 @@ public final class eventNotification
 		
 				AvroDeserializer<QuoteEventNotification> avroQuoteEventNotificationDeserializer = new AvroDeserializer<QuoteEventNotification>();
 				System.out.print(" before AvroDeserialise");
-				QuoteEventNotification quoteEventNotification =  avroQuoteEventNotificationDeserializer.deserialize(topic_name, byteArrays);		
+				QuoteEventNotification quoteEventNotification =  avroQuoteEventNotificationDeserializer.deserialize(topic_name, bytes);		
 				System.out.print(" After AvroDeserialise");
 				avroQuoteEventNotificationDeserializer.close();
 			    payload = quoteEventNotification.toString();  
@@ -101,7 +104,7 @@ public final class eventNotification
 			   
 		    } catch (Exception e) { 
 		    	code= "KO" ; 
-		    	message = "m1 : " + m1 + "m2 : " + m2 + " exception:   " + e.getMessage() + "  "   + e.getStackTrace(); 
+		    	message = " exception:   " + e.getMessage() + "  "   + e.getStackTrace().toString(); 
 				// status
 				IData status = IDataFactory.create();
 				IDataCursor statusCursor = status.getCursor();
@@ -128,7 +131,7 @@ public final class eventNotification
 	{
 		// --- <<IS-START(service)>> ---
 		// @sigtype java 3.5
-		// [i] object:0:required byteOnlys
+		// [i] object:0:required bytes
 		// [i] field:0:required topic_name
 		// [o] field:0:required payload
 		// [o] record:0:required status
@@ -136,28 +139,13 @@ public final class eventNotification
 		// [o] - field:0:required message
 		// pipeline
 		IDataCursor inputPipelineCursor = pipeline.getCursor();
-		Object byteArrays =  IDataUtil.get( inputPipelineCursor, "byteOnlys" );
+		byte[]  bytes =  (byte[]) IDataUtil.get( inputPipelineCursor, "bytes" );
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");  
-		byte[] bytes = null;
 		String payload = null;
 		String code = "OK";
 		String message = "Success";
 		
-										if (byteArrays != null) { 
-										try {
-											bytes = getByteArrays(byteArrays);
-										} catch (IOException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										}
-													   
-										} else { 
-											code= "KO" ; 
-											message = "Input parameter bytes\' was not found.";
-											throw new ServiceException("Input parameter \'bytes\' was not found."); 
-										}
-				
-		
+										
 		
 		IDataCursor outputPipelineCursor = pipeline.getCursor();
 		 
@@ -167,12 +155,12 @@ public final class eventNotification
 				QuoteEventNotification quoteEventNotification =  avroQuoteEventNotificationDeserializer.deserialize(topic_name, bytes);		
 				avroQuoteEventNotificationDeserializer.close();
 			    payload = quoteEventNotification.toString();  
-				// pipelin
+				// pipeline
 				IDataUtil.put(outputPipelineCursor, "payload", payload);
 			   
 		    } catch (Exception e) { 
 		    	code= "KO" ; 
-		    	message = e.getMessage() + "  "  + e.getCause() + " "  + e.getStackTrace();  
+		    	message = " exception:   " + e.getMessage() + "  "   + e.getStackTrace(); 
 		    }
 		
 		
@@ -198,10 +186,52 @@ public final class eventNotification
 	// --- <<IS-START-SHARED>> ---
 	public static byte[] getByteArrays (Object obj) throws IOException {
 		 
-		    ByteArrayOutputStream out = new ByteArrayOutputStream();
-		    ObjectOutputStream os = new ObjectOutputStream(out); 
-		    os.writeObject(obj);
-		    return out.toByteArray();
+	       InputStream stream = objectToInputStream(obj);
+	
+	        if (stream == null) {
+	            return new byte[0];
+	        }
+	
+	        //Code borrowed and modified from https://forums.bukkit.org/threads/tutorial-extreme-beyond-reflection-asm-replacing-loaded-classes.99376/
+	        //Edits include fixing the formatting to my taste, along with a few renames, and making the error print
+	        //to the NAPI Log Helper, as well as fixing a bit of bad programming style.
+	
+	        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+	
+	        try {
+	            int bytesRead;
+	            byte[] data = new byte[16384];
+	
+	            while ((bytesRead = stream.read(data, 0, data.length)) != -1) {
+	                buffer.write(data, 0, bytesRead);
+	            }
+	
+	            buffer.flush();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	
+	     return buffer.toByteArray();
+	}
+	
+	public static final InputStream objectToInputStream(Object theObject) {
+	    try {
+	        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+	        ObjectOutputStream objectOutputStream = new ObjectOutputStream(
+	                byteArrayOutputStream);
+	
+	        objectOutputStream.writeObject(theObject);
+	
+	        objectOutputStream.flush();
+	        objectOutputStream.close();
+	
+	        return new ByteArrayInputStream(
+	                byteArrayOutputStream.toByteArray());
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	
+	    return null;
 	}
 	// --- <<IS-END-SHARED>> ---
 }

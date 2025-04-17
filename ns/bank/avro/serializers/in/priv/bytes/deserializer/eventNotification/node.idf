@@ -6,10 +6,33 @@
   <value name="node_nsName">bank.avro.serializers.in.priv.bytes.deserializer.eventNotification</value>
   <value name="is_public">false</value>
   <value name="shared">cHVibGljIHN0YXRpYyBieXRlW10gZ2V0Qnl0ZUFycmF5cyAoT2JqZWN0IG9iaikgdGhyb3dzIElP
-RXhjZXB0aW9uIHsKCSAKCSAgICBCeXRlQXJyYXlPdXRwdXRTdHJlYW0gb3V0ID0gbmV3IEJ5dGVB
-cnJheU91dHB1dFN0cmVhbSgpOwoJICAgIE9iamVjdE91dHB1dFN0cmVhbSBvcyA9IG5ldyBPYmpl
-Y3RPdXRwdXRTdHJlYW0ob3V0KTsgCgkgICAgb3Mud3JpdGVPYmplY3Qob2JqKTsKCSAgICByZXR1
-cm4gb3V0LnRvQnl0ZUFycmF5KCk7Cn0=</value>
+RXhjZXB0aW9uIHsKCSAKICAgICAgIElucHV0U3RyZWFtIHN0cmVhbSA9IG9iamVjdFRvSW5wdXRT
+dHJlYW0ob2JqKTsKCiAgICAgICAgaWYgKHN0cmVhbSA9PSBudWxsKSB7CiAgICAgICAgICAgIHJl
+dHVybiBuZXcgYnl0ZVswXTsKICAgICAgICB9CgogICAgICAgIC8vQ29kZSBib3Jyb3dlZCBhbmQg
+bW9kaWZpZWQgZnJvbSBodHRwczovL2ZvcnVtcy5idWtraXQub3JnL3RocmVhZHMvdHV0b3JpYWwt
+ZXh0cmVtZS1iZXlvbmQtcmVmbGVjdGlvbi1hc20tcmVwbGFjaW5nLWxvYWRlZC1jbGFzc2VzLjk5
+Mzc2LwogICAgICAgIC8vRWRpdHMgaW5jbHVkZSBmaXhpbmcgdGhlIGZvcm1hdHRpbmcgdG8gbXkg
+dGFzdGUsIGFsb25nIHdpdGggYSBmZXcgcmVuYW1lcywgYW5kIG1ha2luZyB0aGUgZXJyb3IgcHJp
+bnQKICAgICAgICAvL3RvIHRoZSBOQVBJIExvZyBIZWxwZXIsIGFzIHdlbGwgYXMgZml4aW5nIGEg
+Yml0IG9mIGJhZCBwcm9ncmFtbWluZyBzdHlsZS4KCiAgICAgICAgQnl0ZUFycmF5T3V0cHV0U3Ry
+ZWFtIGJ1ZmZlciA9IG5ldyBCeXRlQXJyYXlPdXRwdXRTdHJlYW0oKTsKCiAgICAgICAgdHJ5IHsK
+ICAgICAgICAgICAgaW50IGJ5dGVzUmVhZDsKICAgICAgICAgICAgYnl0ZVtdIGRhdGEgPSBuZXcg
+Ynl0ZVsxNjM4NF07CgogICAgICAgICAgICB3aGlsZSAoKGJ5dGVzUmVhZCA9IHN0cmVhbS5yZWFk
+KGRhdGEsIDAsIGRhdGEubGVuZ3RoKSkgIT0gLTEpIHsKICAgICAgICAgICAgICAgIGJ1ZmZlci53
+cml0ZShkYXRhLCAwLCBieXRlc1JlYWQpOwogICAgICAgICAgICB9CgogICAgICAgICAgICBidWZm
+ZXIuZmx1c2goKTsKICAgICAgICB9IGNhdGNoIChJT0V4Y2VwdGlvbiBlKSB7CiAgICAgICAgICAg
+IGUucHJpbnRTdGFja1RyYWNlKCk7CiAgICAgICAgfQoKICAgICByZXR1cm4gYnVmZmVyLnRvQnl0
+ZUFycmF5KCk7Cn0KCnB1YmxpYyBzdGF0aWMgZmluYWwgSW5wdXRTdHJlYW0gb2JqZWN0VG9JbnB1
+dFN0cmVhbShPYmplY3QgdGhlT2JqZWN0KSB7CiAgICB0cnkgewogICAgICAgIEJ5dGVBcnJheU91
+dHB1dFN0cmVhbSBieXRlQXJyYXlPdXRwdXRTdHJlYW0gPSBuZXcgQnl0ZUFycmF5T3V0cHV0U3Ry
+ZWFtKCk7CiAgICAgICAgT2JqZWN0T3V0cHV0U3RyZWFtIG9iamVjdE91dHB1dFN0cmVhbSA9IG5l
+dyBPYmplY3RPdXRwdXRTdHJlYW0oCiAgICAgICAgICAgICAgICBieXRlQXJyYXlPdXRwdXRTdHJl
+YW0pOwoKICAgICAgICBvYmplY3RPdXRwdXRTdHJlYW0ud3JpdGVPYmplY3QodGhlT2JqZWN0KTsK
+CiAgICAgICAgb2JqZWN0T3V0cHV0U3RyZWFtLmZsdXNoKCk7CiAgICAgICAgb2JqZWN0T3V0cHV0
+U3RyZWFtLmNsb3NlKCk7CgogICAgICAgIHJldHVybiBuZXcgQnl0ZUFycmF5SW5wdXRTdHJlYW0o
+CiAgICAgICAgICAgICAgICBieXRlQXJyYXlPdXRwdXRTdHJlYW0udG9CeXRlQXJyYXkoKSk7CiAg
+ICB9IGNhdGNoIChJT0V4Y2VwdGlvbiBlKSB7CiAgICAgICAgZS5wcmludFN0YWNrVHJhY2UoKTsK
+ICAgIH0KCiAgICByZXR1cm4gbnVsbDsKfQ==</value>
   <value name="encodeutf8">true</value>
   <value name="extends"></value>
   <array name="implements" type="value" depth="1">
@@ -17,9 +40,10 @@ cm4gb3V0LnRvQnl0ZUFycmF5KCk7Cn0=</value>
   <array name="imports" type="value" depth="1">
     <value>java.nio.file.Files</value>
     <value>java.nio.file.Paths</value>
-    <value>org.apache.commons.lang3.SerializationUtils</value>
+    <value>java.io.ByteArrayInputStream</value>
     <value>java.io.ByteArrayOutputStream</value>
     <value>java.io.IOException</value>
+    <value>java.io.InputStream</value>
     <value>java.io.ObjectOutputStream</value>
     <value>java.io.Serializable</value>
     <value>com.stellantis.som.adapter.kafka.avro.notify.QuoteEventNotification</value>
