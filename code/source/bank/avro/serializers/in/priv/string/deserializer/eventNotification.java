@@ -50,8 +50,8 @@ public final class eventNotification
 		
 		if (inputString != null) { 
 			//bytes = inputString.getBytes(StandardCharsets.UTF_8);
-			try {
-				bytes = getByteArrays(inputString);
+			try {   
+				bytes = getByteArrays(inputString); 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
