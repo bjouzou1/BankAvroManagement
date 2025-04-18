@@ -72,7 +72,7 @@ public final class eventNotification
 				avroQuoteEventNotificationDeserializer.close();
 			    payload = quoteEventNotification.toString();  
 				// pipeline
-				IDataUtil.put(outputPipelineCursor, "payload", payload);
+				IDataUtil.put(outputPipelineCursor, "payload", payload);  
 			   
 		    } catch (Exception e) { 
 		    	code= "KO" ; 
@@ -120,7 +120,7 @@ public final class eventNotification
 		IDataCursor inputPipelineCursor = pipeline.getCursor();
 		Object byteArrays =  IDataUtil.get( inputPipelineCursor, "bytes" );
 		
-		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");  
+		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");   
 		byte[] bytes = null;
 		String payload = null; 
 		
@@ -201,7 +201,7 @@ public final class eventNotification
 		byte[]  bytes = (byte[]) IDataUtil.get( inputPipelineCursor, "bytes");
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");  
 		String payload = null;
-		String code = "OK";
+		String code = "OK"; 
 		String message = "Success";
 		 
 										 
