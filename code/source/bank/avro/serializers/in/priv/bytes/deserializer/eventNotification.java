@@ -48,9 +48,9 @@ public final class eventNotification
 		byte[]  bytes = (byte[]) IDataUtil.get( inputPipelineCursor, "bytes");
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");  
 		String payload = null;
-		String code = "OK"; 
-		String message = "Success";    
-		     
+		String code = "OK";
+		String message = "Success";
+		
 		//		if (bytesObject != null) { 
 		//			//bytes = inputString.getBytes(StandardCharsets.UTF_8);
 		//			try {
@@ -62,7 +62,7 @@ public final class eventNotification
 		//			} else { 
 		//			throw new ServiceException("Input parameter \'bytes\' was not found."); 
 		//			}
-		 
+		
 		IDataCursor outputPipelineCursor = pipeline.getCursor();
 		 
 		   try {
@@ -72,7 +72,7 @@ public final class eventNotification
 				avroQuoteEventNotificationDeserializer.close();
 			    payload = quoteEventNotification.toString();  
 				// pipeline
-				IDataUtil.put(outputPipelineCursor, "payload", payload);  
+				IDataUtil.put(outputPipelineCursor, "payload", payload);
 			   
 		    } catch (Exception e) { 
 		    	code= "KO" ; 
@@ -93,6 +93,7 @@ public final class eventNotification
 		statusCursor.destroy();
 		IDataUtil.put(outputPipelineCursor, "status", status); 
 		outputPipelineCursor.destroy();
+			
 		// --- <<IS-END>> ---
 
                 
@@ -111,18 +112,19 @@ public final class eventNotification
 		// [o] record:0:required status
 		// [o] - field:0:required code
 		// [o] - field:0:required message
+		 
 		String code = "OK";
 		String message = "Success";
 		IDataCursor outputPipelineCursor = pipeline.getCursor();
 		
-		try {  
-		// pipeline  
+		try {
+		// pipeline
 		IDataCursor inputPipelineCursor = pipeline.getCursor();
 		Object byteArrays =  IDataUtil.get( inputPipelineCursor, "bytes" );
 		
-		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");   
+		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");  
 		byte[] bytes = null;
-		String payload = null; 
+		String payload = null;
 		
 		
 												if (byteArrays != null) { 
@@ -178,6 +180,11 @@ public final class eventNotification
 				IDataUtil.put(outputPipelineCursor, "status", status); 
 				outputPipelineCursor.destroy();
 		    }
+		
+		
+		 
+		
+			
 		// --- <<IS-END>> ---
 
                 
@@ -201,11 +208,11 @@ public final class eventNotification
 		byte[]  bytes = (byte[]) IDataUtil.get( inputPipelineCursor, "bytes");
 		String topic_name = IDataUtil.getString(inputPipelineCursor, "topic_name");  
 		String payload = null;
-		String code = "OK"; 
+		String code = "OK";
 		String message = "Success";
 		 
 										 
-		
+		 
 		IDataCursor outputPipelineCursor = pipeline.getCursor();
 		 
 		   try {
@@ -236,6 +243,7 @@ public final class eventNotification
 		statusCursor.destroy();
 		IDataUtil.put(outputPipelineCursor, "status", status); 
 		outputPipelineCursor.destroy();
+			
 		// --- <<IS-END>> ---
 
                 
