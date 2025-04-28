@@ -6,31 +6,23 @@
   <value name="node_nsName">bank.avro.serializers.in.priv.bytes.deserializer.eventNotification</value>
   <value name="is_public">false</value>
   <value name="shared">cHVibGljIHN0YXRpYyBieXRlW10gZ2V0Qnl0ZUFycmF5cyAoT2JqZWN0IG9iaikgdGhyb3dzIElP
-RXhjZXB0aW9uIHsKICAgIEJ5dGVBcnJheU91dHB1dFN0cmVhbSBvdXQgPSBuZXcgQnl0ZUFycmF5
-T3V0cHV0U3RyZWFtKCk7CiAgICBPYmplY3RPdXRwdXRTdHJlYW0gb3MgPSBuZXcgT2JqZWN0T3V0
-cHV0U3RyZWFtKG91dCk7IAogICAgb3Mud3JpdGVPYmplY3Qob2JqKTsKICAgIHJldHVybiBvdXQu
-dG9CeXRlQXJyYXkoKTsKCn0KCnB1YmxpYyBzdGF0aWMgZmluYWwgSW5wdXRTdHJlYW0gb2JqZWN0
-VG9JbnB1dFN0cmVhbShPYmplY3QgdGhlT2JqZWN0KSB7CiAgICB0cnkgewogICAgICAgIEJ5dGVB
-cnJheU91dHB1dFN0cmVhbSBieXRlQXJyYXlPdXRwdXRTdHJlYW0gPSBuZXcgQnl0ZUFycmF5T3V0
-cHV0U3RyZWFtKCk7CiAgICAgICAgT2JqZWN0T3V0cHV0U3RyZWFtIG9iamVjdE91dHB1dFN0cmVh
-bSA9IG5ldyBPYmplY3RPdXRwdXRTdHJlYW0oCiAgICAgICAgICAgICAgICBieXRlQXJyYXlPdXRw
-dXRTdHJlYW0pOwoKICAgICAgICBvYmplY3RPdXRwdXRTdHJlYW0ud3JpdGVPYmplY3QodGhlT2Jq
-ZWN0KTsKCiAgICAgICAgb2JqZWN0T3V0cHV0U3RyZWFtLmZsdXNoKCk7CiAgICAgICAgb2JqZWN0
-T3V0cHV0U3RyZWFtLmNsb3NlKCk7CgogICAgICAgIHJldHVybiBuZXcgQnl0ZUFycmF5SW5wdXRT
-dHJlYW0oCiAgICAgICAgICAgICAgICBieXRlQXJyYXlPdXRwdXRTdHJlYW0udG9CeXRlQXJyYXko
-KSk7CiAgICB9IGNhdGNoIChJT0V4Y2VwdGlvbiBlKSB7CiAgICAgICAgZS5wcmludFN0YWNrVHJh
-Y2UoKTsKICAgIH0KCiAgICByZXR1cm4gbnVsbDsKfQ==</value>
+RXhjZXB0aW9uIHsKCSAKCSAgICBCeXRlQXJyYXlPdXRwdXRTdHJlYW0gb3V0ID0gbmV3IEJ5dGVB
+cnJheU91dHB1dFN0cmVhbSgpOwoJICAgIE9iamVjdE91dHB1dFN0cmVhbSBvcyA9IG5ldyBPYmpl
+Y3RPdXRwdXRTdHJlYW0ob3V0KTsgCgkgICAgb3Mud3JpdGVPYmplY3Qob2JqKTsKCSAgICByZXR1
+cm4gb3V0LnRvQnl0ZUFycmF5KCk7Cn0=</value>
   <value name="encodeutf8">true</value>
   <value name="extends"></value>
   <array name="implements" type="value" depth="1">
   </array>
   <array name="imports" type="value" depth="1">
-    <value>java.io.ByteArrayInputStream</value>
+    <value>java.nio.file.Files</value>
+    <value>java.nio.file.Paths</value>
+    <value>org.apache.commons.lang3.SerializationUtils</value>
     <value>java.io.ByteArrayOutputStream</value>
     <value>java.io.IOException</value>
-    <value>java.io.InputStream</value>
     <value>java.io.ObjectOutputStream</value>
-    <value>com.stellantis.bsq.adapter.kafka.avro.notify.QuoteEventNotification</value>
+    <value>java.io.Serializable</value>
+    <value>com.stellantis.som.adapter.kafka.avro.notify.QuoteEventNotification</value>
     <value>com.stellantis.som.adapter.kafka.avro.serializers.AvroDeserializer</value>
   </array>
 </Values>
