@@ -25,10 +25,9 @@
             <value name="field_password">false</value>
           </record>
           <value name="is_public">false</value>
-          <value name="field_name">byteOnlys</value>
+          <value name="field_name">bytes</value>
           <value name="field_type">object</value>
           <value name="field_dim">0</value>
-          <value name="wrapper_type">java.lang.Byte</value>
           <value name="nillable">true</value>
           <value name="form_qualified">false</value>
           <value name="is_global">false</value>
@@ -154,6 +153,7 @@
   <value name="prefetch">no</value>
   <value name="cache_ttl">15</value>
   <value name="prefetch_level">1</value>
+  <value name="template_type">html</value>
   <value name="audit_level">off</value>
   <value name="check_internal_acls">no</value>
   <value name="icontext_policy">$null</value>

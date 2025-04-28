@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Values version="2.0">
-  <value name="node_type">interface</value>
-  <value name="node_subtype">unknown</value>
-  <value name="node_nsName">bank.avro.serializers.in.priv.bytes.deserializer.eventNotification</value>
-  <value name="is_public">false</value>
-  <value name="shared">cHVibGljIHN0YXRpYyBieXRlW10gZ2V0Qnl0ZUFycmF5cyAoT2JqZWN0IG9iaikgdGhyb3dzIElP
-RXhjZXB0aW9uIHsKCSAKCSAgICBCeXRlQXJyYXlPdXRwdXRTdHJlYW0gb3V0ID0gbmV3IEJ5dGVB
-cnJheU91dHB1dFN0cmVhbSgpOwoJICAgIE9iamVjdE91dHB1dFN0cmVhbSBvcyA9IG5ldyBPYmpl
-Y3RPdXRwdXRTdHJlYW0ob3V0KTsgCgkgICAgb3Mud3JpdGVPYmplY3Qob2JqKTsKCSAgICByZXR1
-cm4gb3V0LnRvQnl0ZUFycmF5KCk7Cn0=</value>
   <value name="encodeutf8">true</value>
+  <value name="shared">Cgk=</value>
   <value name="extends"></value>
   <array name="implements" type="value" depth="1">
   </array>
   <array name="imports" type="value" depth="1">
-    <value>java.nio.file.Files</value>
-    <value>java.nio.file.Paths</value>
-    <value>org.apache.commons.lang3.SerializationUtils</value>
-    <value>java.io.ByteArrayOutputStream</value>
-    <value>java.io.IOException</value>
-    <value>java.io.ObjectOutputStream</value>
-    <value>java.io.Serializable</value>
-    <value>com.stellantis.som.adapter.kafka.avro.notify.QuoteEventNotification</value>
-    <value>com.stellantis.som.adapter.kafka.avro.serializers.AvroDeserializer</value>
+    <value>com.stellantis.som.adapter.kafka.avro.interfaces.Serialization</value>
   </array>
 </Values>

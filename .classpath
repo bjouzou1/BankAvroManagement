@@ -32,6 +32,7 @@
 	<classpathentry kind="var" path="ECLIPSE_E4_MWB"/>
 	<classpathentry kind="var" path="ECLIPSE_OSGI_SVC"/>
 	<classpathentry kind="var" path="ECLIPSE_E4_CORE"/>
+	<classpathentry kind="lib" path="lib/avro-serialization-tools.jar"/>
 	<classpathentry kind="lib" path="code/jars/avro-serialization-tools.jar"/>
 	<classpathentry kind="output" path="code/classes"/>
 </classpath>
