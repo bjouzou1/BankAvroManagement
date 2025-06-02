@@ -1,13 +1,17 @@
 package bank.avro.management.in.priv.string.deserializer;
 
+// -----( IS Java Code Template v1.2
+
 import com.wm.data.*;
 import com.wm.util.Values;
 import com.wm.app.b2b.server.Service;
 import com.wm.app.b2b.server.ServiceException;
+// --- <<IS-START-IMPORTS>> ---
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import com.stellantis.som.adapter.kafka.avro.interfaces.Serialization;
+// --- <<IS-END-IMPORTS>> ---
 
 public final class eventNotification
 
@@ -83,6 +87,7 @@ public final class eventNotification
 		
 			
 			
+			
 		// --- <<IS-END>> ---
 
                 
@@ -96,6 +101,7 @@ public final class eventNotification
 	    os.writeObject(obj);
 	    return out.toByteArray();
 	}
+		
 		
 	// --- <<IS-END-SHARED>> ---
 }

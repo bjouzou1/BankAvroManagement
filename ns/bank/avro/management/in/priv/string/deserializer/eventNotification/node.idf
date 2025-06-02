@@ -5,7 +5,7 @@
 RXhjZXB0aW9uIHsKCSAKICAgIEJ5dGVBcnJheU91dHB1dFN0cmVhbSBvdXQgPSBuZXcgQnl0ZUFy
 cmF5T3V0cHV0U3RyZWFtKCk7CiAgICBPYmplY3RPdXRwdXRTdHJlYW0gb3MgPSBuZXcgT2JqZWN0
 T3V0cHV0U3RyZWFtKG91dCk7IAogICAgb3Mud3JpdGVPYmplY3Qob2JqKTsKICAgIHJldHVybiBv
-dXQudG9CeXRlQXJyYXkoKTsKfQoJ</value>
+dXQudG9CeXRlQXJyYXkoKTsKfQoJCgk=</value>
   <value name="encodeutf8">true</value>
   <value name="extends"></value>
   <array name="implements" type="value" depth="1">
