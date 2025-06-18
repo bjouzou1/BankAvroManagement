@@ -3,7 +3,7 @@
 <Values version="2.0">
   <value name="enabled">yes</value>
   <value name="system_package">no</value>
-  <value name="version">2.0.0</value>
+  <value name="version">1.8.0</value>
   <null name="startup_services"/>
   <null name="shutdown_services"/>
   <null name="replication_services"/>
@@ -12,9 +12,9 @@
   <value name="webappLoad">yes</value>
   <value name="reloadWithDependentPackage">yes</value>
   <value name="name">BankAvroManagement</value>
-  <value name="build">10.7.1675</value>
+  <value name="build">10.7.1705</value>
   <null name="description"/>
-  <value name="time">2025-05-28 02:07:42 CEST</value>
+  <value name="time">2025-06-18 02:08:12 CEST</value>
   <value name="jvm_version">1.8.0_322</value>
   <value name="publisher">yval4fw0.inetpsa.com</value>
   <value name="patch_nums"></value>
